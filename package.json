@@ -2,7 +2,7 @@
   "name": "renaud_site",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://Renaud2002.github.io/renaud_site/",
+  "homepage": "https://{username}.github.io/{repo-name}/",
   "type": "module",
   "scripts": {
     "predeploy" : "npm run build",
