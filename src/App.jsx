@@ -23,8 +23,8 @@ function App() {
       Component = <Contact/>
       break;
     case "/renaud-site/Timeline":
-    Component = <Timeline/>
-    break;
+      Component = <Timeline/>
+      break;
   }
 
   return (

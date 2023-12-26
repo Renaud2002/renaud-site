@@ -1,4 +1,5 @@
 import React from 'react';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Intro from './components/Intro';
 import Timeline from './components/Timeline';
 import Footer from './components/Footer';
@@ -40,6 +41,13 @@ function Navbar(){
                     <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
                         {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
+                        {/* <Router basename="/renaud-site">
+                            <Switch>
+                                <Route path="/Timeline" component={TimelineComponent} />
+                                <Route path="/Intro" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page" component={TimelineComponent}/>
+                                
+                            </Switch>
+                        </Router> */}
                         <a href="/renaud-site/Intro" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Intro</a>
                         <a href="/renaud-site/Timeline" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Experience</a>
                         <a href="/renaud-site/Portfolio" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
@@ -63,6 +71,14 @@ function Navbar(){
             </div>
         </nav>
 
+    )
+}
+
+function CunstomLink({ href, children, ...props}){
+    return (
+        <li>
+            <a href={href}>children</a>
+        </li>
     )
 }
 
