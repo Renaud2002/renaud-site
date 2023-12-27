@@ -31,7 +31,7 @@ function App() {
   return (
     <div className='App'>
       <Navbar/>
-      <div className="container">
+      <div>
         <Routes>
           <Route path="/" element={<Intro />}/>
           <Route path="/Intro" element={<Intro />}/>
