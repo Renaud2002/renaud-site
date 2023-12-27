@@ -2,13 +2,7 @@ import React from 'react';
 
 function PortfolioItem({title, imgUrl, stack, link}){
     return (
-        <div className="border-2 border-stone-900 rounded-md overflow-hidden">
-            {/* <a 
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-2 border-stone-900 dark:border-white rounded-md overflow-hidden"
-            ></a> */}
+        <div className="border-2 border-stone-900 rounded-md overflow-hidden pt-20">
             <img
                 src={imgUrl}
                 alt="Portfolio"
