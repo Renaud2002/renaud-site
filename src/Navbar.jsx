@@ -1,10 +1,5 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Intro from './components/Intro';
-import Timeline from './components/Timeline';
-import Footer from './components/Footer';
-import Contact from './components/Contact';
-import Portfolio from './components/Portfolio';
+
 
 function Navbar(){
     return (

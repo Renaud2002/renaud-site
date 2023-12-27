@@ -10,19 +10,19 @@ function App() {
 
   let Component
   switch (window.location.pathname) {
-    case "/renaud-site/":
+    case "/":
       Component = <Intro/>
       break;
-    case "/renaud-site/Intro":
+    case "/Intro":
       Component = <Intro/>
       break;
-    case "/renaud-site/Portfolio":
+    case "/Portfolio":
       Component = <Portfolio/>
       break;
-    case "/renaud-site/Contact":
+    case "/Contact":
       Component = <Contact/>
       break;
-    case "/renaud-site/Timeline":
+    case "/Timeline":
       Component = <Timeline/>
       break;
   }
