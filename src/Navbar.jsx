@@ -1,4 +1,10 @@
 import React from 'react';
+import Intro from './components/Intro';
+import Timeline from './components/Timeline';
+import Footer from './components/Footer';
+import Contact from './components/Contact';
+import Portfolio from './components/Portfolio';
+import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 
 
 function Navbar(){
@@ -43,10 +49,14 @@ function Navbar(){
                                 
                             </Switch>
                         </Router> */}
-                        <a href="/renaud-site/Intro" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Intro</a>
+                        {/* <a href="/renaud-site/Intro" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Intro</a>
                         <a href="/renaud-site/Timeline" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Experience</a>
                         <a href="/renaud-site/Portfolio" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
-                        <a href="/renaud-site/Contact" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
+                        <a href="/renaud-site/Contact" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a> */}
+                        <CunstomLink to="/Intro" className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Intro</CunstomLink>
+                        <CunstomLink to="/Timeline" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Experience</CunstomLink>
+                        <CunstomLink to="/Portfolio" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</CunstomLink>
+                        <CunstomLink to="/Contact" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</CunstomLink>
                     </div>
                     </div>
                 </div>
@@ -58,10 +68,15 @@ function Navbar(){
             <div class="sm:hidden" id="mobile-menu">
                 <div class="space-y-1 px-2 pb-3 pt-2">
                 {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                <a href="/renaud-site/Intro" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Intro</a>
-                <a href="/renaud-site/Timeline" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Experience</a>
+                {/* <a href="/renaud-site/Intro" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Intro</a> */}
+                {/* <a href="/renaud-site/Timeline" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Experience</a>
                 <a href="/renaud-site/Portfolio" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-                <a href="/renaud-site/Contact" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</a>
+                <a href="/renaud-site/Contact" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</a> */}
+                
+                <CunstomLink to="/Intro" className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Intro</CunstomLink>
+                <CunstomLink to="/Timeline" className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium">Experience</CunstomLink>
+                <CunstomLink to="/Portfolio" className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium">Projects</CunstomLink>
+                <CunstomLink to="/Contact" className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium">Contact</CunstomLink>
                 </div>
             </div>
         </nav>
@@ -69,11 +84,14 @@ function Navbar(){
     )
 }
 
-function CunstomLink({ href, children, ...props}){
+function CunstomLink({ to, children, className, ...props}){
+    // const path = window.location.pathname
+    const resolvedPath = useResolvedPath(to)
+    const isActive = useMatch({path : resolvedPath.pathname, end: true})
     return (
-        <li>
-            <a href={href}>children</a>
-        </li>
+        <div className={isActive? "active" : ""}>
+            <Link to={to} className= {className}>{children}</Link>
+        </div>
     )
 }
 
